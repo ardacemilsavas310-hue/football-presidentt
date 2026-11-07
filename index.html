@@ -77,5 +77,18 @@ document.getElementById("result").innerHTML=
 "<p class='muted'>Yönetim kurulu toplantısı hazırlanıyor. Yeni kararlar yakında burada olacak.</p>";
 }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+const SUPABASE_URL = "https://zvpogcvbipuhvsdzfmpw.supabase.co/rest/v1/";
+const SUPABASE_KEY = "sb_publishable__wyrAQXzyZfSkOb6IXhuZA_GegCsKgI";
+
+const supabaseClient = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+console.log("Football President veritabanı bağlantısı hazır!");
+</script>
 </body>
 </html>
