@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Football President Simulator</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#10151d;color:#f3f5f7;font-family:Arial,sans-serif}
+header{background:#182330;padding:22px 16px;border-bottom:1px solid #344354}
+h1{font-size:23px;margin:0;color:#65d6a3}
+header p{color:#aab7c4;font-size:13px}
+main{padding:18px;max-width:850px;margin:auto}
+.card{background:#1b2735;padding:18px;border-radius:13px;margin-bottom:15px;border:1px solid #344354}
+h2{font-size:18px;margin-top:0}
+.stat{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #344354}
+select,button{width:100%;padding:13px;border-radius:8px;border:0;margin-top:10px;font-size:15px}
+select{background:#263747;color:white}
+button{background:#37b985;color:#071a12;font-weight:bold}
+button:active{opacity:.8}
+.muted{color:#aab7c4;font-size:13px}
+</style>
+</head>
+<body>
+<header>
+<h1>⚽ FOOTBALL PRESIDENT</h1>
+<p>Futbolun geleceğine sen karar ver.</p>
+</header>
+<main>
+<div class="card">
+<h2>Başkanlık Merkezi</h2>
+<p class="muted">Kendi futbol kulübünü yönetmeye hazırlan.</p>
+<div class="stat"><span>Oyun tarihi</span><strong>2026</strong></div>
+<div class="stat"><span>Başkan</span><strong>Arda Cemil Savaş</strong></div>
+<div class="stat"><span>Görev</span><strong>Yeni başkan</strong></div>
+</div>
+
+<div class="card">
+<h2>Kulübünü seç</h2>
+<p class="muted">Başkanlık kariyerine hangi kulüpte başlayacaksın?</p>
+<select id="club">
+<option value="">Kulüp seç...</option>
+<option>Fenerbahçe</option>
+<option>Galatasaray</option>
+<option>Beşiktaş</option>
+<option>Trabzonspor</option>
+<option>SV Meppen</option>
+<option>Hannover 96</option>
+<option>Hamburger SV</option>
+<option>Borussia Dortmund</option>
+<option>Real Madrid</option>
+<option>Barcelona</option>
+<option>Manchester United</option>
+<option>Liverpool</option>
+<option>AC Milan</option>
+<option>Inter</option>
+<option>Paris Saint-Germain</option>
+</select>
+<button onclick="startGame()">Başkanlık kariyerini başlat</button>
+</div>
+
+<div class="card" id="result">
+<h2>Oyun durumu</h2>
+<p class="muted">Henüz bir kulüp seçmedin. Seçimini yaptıktan sonra kariyerin burada başlayacak.</p>
+</div>
+<p class="muted">Football President Simulator · İlk geliştirme sürümü</p>
+</main>
+<script>
+function startGame(){
+const club=document.getElementById("club").value;
+if(!club){alert("Önce bir kulüp seçmelisin!");return;}
+document.getElementById("result").innerHTML=
+"<h2>🎉 Başkanlık görevin başladı!</h2>"+
+"<div class='stat'><span>Kulüp</span><strong>"+club+"</strong></div>"+
+"<div class='stat'><span>Başkan</span><strong>Arda Cemil Savaş</strong></div>"+
+"<p class='muted'>Yönetim kurulu toplantısı hazırlanıyor. Yeni kararlar yakında burada olacak.</p>";
+}
+</script>
+</body>
+</html>
