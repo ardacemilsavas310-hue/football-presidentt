@@ -90,5 +90,40 @@ const supabaseClient = window.supabase.createClient(
 
 console.log("Football President veritabanı bağlantısı hazır!");
 </script>
+
+<script>
+async function testDatabase() {
+  const box = document.createElement("div");
+  box.className = "card";
+  box.innerHTML = `
+    <h2>🗄️ Veritabanı Durumu</h2>
+    <p id="db-status">Bağlantı kontrol ediliyor...</p>
+  `;
+  document.querySelector("main").prepend(box);
+
+  const status = box.querySelector("#db-status");
+
+  try {
+    const [countries, leagues] = await Promise.all([
+      supabaseClient.from("countries").select("name"),
+      supabaseClient.from("leagues").select("name")
+    ]);
+
+    if (countries.error) throw countries.error;
+    if (leagues.error) throw leagues.error;
+
+    status.textContent =
+      "Bağlantı başarılı! Ülke: " +
+      countries.data.length +
+      " | Lig: " +
+      leagues.data.length;
+  } catch (error) {
+    status.textContent = "Bağlantı hatası: " + error.message;
+  }
+}
+
+testDatabase();
+</script>
+
 </body>
 </html>
